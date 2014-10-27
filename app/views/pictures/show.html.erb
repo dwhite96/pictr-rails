@@ -2,3 +2,13 @@
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
+
+<% if @pictures.empty? %>
+  <h3>No pictures. :(</h3>
+<% else %>
+  <ul class="picture-list">
+    <% @pictures.each do |picture| %>
+      <li><%= image_tag(:file) %></li>
+    <% end %>
+  </ul>
+<% end %>

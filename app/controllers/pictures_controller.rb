@@ -2,14 +2,13 @@ class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
-  # GET /pictures.json
   def index
     @pictures = Picture.all
   end
 
   # GET /pictures/1
-  # GET /pictures/1.json
   def show
+    set_picture
   end
 
   # GET /pictures/new
@@ -22,23 +21,17 @@ class PicturesController < ApplicationController
   end
 
   # POST /pictures
-  # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
+    @picture = Picture.create(picture_params)
 
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    if @picture.persisted?
+      redirect_to root_path
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /pictures/1
-  # PATCH/PUT /pictures/1.json
   def update
     respond_to do |format|
       if @picture.update(picture_params)
@@ -52,7 +45,6 @@ class PicturesController < ApplicationController
   end
 
   # DELETE /pictures/1
-  # DELETE /pictures/1.json
   def destroy
     @picture.destroy
     respond_to do |format|
@@ -69,6 +61,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params[:picture]
+      params.require(:picture).permit(:name, :description, :picture)
     end
 end
