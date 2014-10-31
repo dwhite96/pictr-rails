@@ -13,13 +13,11 @@
 
   <div class="field">
     <%= f.file_field :picture %>
-    <%= render partial: "shared/error", locals: { model: @picture, field: :picture } %>
   </div>
 
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-    <%= render partial: "shared/error", locals: { model: @picture, field: :name } %>
   </div>
 
   <div class="field">

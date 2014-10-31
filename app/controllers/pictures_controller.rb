@@ -21,7 +21,7 @@ class PicturesController < ApplicationController
 
   # POST /pictures
   def create
-    @picture = Picture.create(picture_params)
+    @picture = current_user.pictures.create(picture_params)
 
     if @picture.persisted?
       redirect_to root_path, notice: "Picture was successfully created."

@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <%= render partial: nav_partial %>
+</nav>
+
+<% [:notice, :alert].each do |type| %>
+  <%= render partial: "shared/flash", locals: { type: type } %>
+<% end %>
 
 <%= yield %>
 
