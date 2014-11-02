@@ -1,7 +1,6 @@
 class Picture < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :gallery
   mount_uploader :picture, PictureUploader
 
   validates :picture, presence: true
-  validates :name, presence: true
 end
