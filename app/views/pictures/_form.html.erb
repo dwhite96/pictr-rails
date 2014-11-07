@@ -1,4 +1,4 @@
-<%= form_for(@picture) do |f| %>
+<%= form_for(@picture, url: { action: "create" }) do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
@@ -14,17 +14,6 @@
   <div class="field">
     <%= f.file_field :picture %>
     <%= render partial: "shared/error", locals: { model: @picture, field: :picture } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-    <%= render partial: "shared/error", locals: { model: @picture, field: :name } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
   </div>
 
   <div class="actions">

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :galleries
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :pictures, through: :galleries, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

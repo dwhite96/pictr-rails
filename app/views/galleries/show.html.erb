@@ -1,0 +1,28 @@
+<%= link_to 'Edit', edit_gallery_path(@gallery) %>
+<%= link_to 'Back', galleries_path %>
+
+<div class="gallery">
+  <%= link_to 'Index', galleries_path %>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gallery.pictures.each do |picture| %>
+      <tr>
+        <td><%= image_tag(picture.picture_url) %></td>
+        <td><%= link_to 'Show', gallery_picture_path(@gallery, picture) %></td>
+        <td><%= link_to 'Edit', edit_gallery_picture_path(@gallery, picture) %></td>
+        <td><%= link_to 'Delete', gallery_picture_path(@gallery, picture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Picture', new_gallery_picture_path(@gallery) %>
