@@ -11,9 +11,9 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= image_tag(picture.picture_url) %></td>
-        <td><%= link_to 'Show', user_picture_path(current_user, picture) %></td>
-        <td><%= link_to 'Edit', edit_user_picture_path(current_user, picture) %></td>
-        <td><%= link_to 'Delete', user_picture_path(current_user, picture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', gallery_picture_path(current_gallery, picture) %></td>
+        <td><%= link_to 'Edit', edit_gallery_picture_path(current_gallery, picture) %></td>
+        <td><%= link_to 'Delete', gallery_picture_path(current_gallery, picture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -21,4 +21,4 @@
 
 <br>
 
-<%= link_to 'New Picture', new_user_picture_path %>
+<%= link_to 'New Picture', new_gallery_picture_path %>

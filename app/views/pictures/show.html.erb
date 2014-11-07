@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_picture_path(@picture) %>
-<%= link_to 'Back', pictures_path %>
+<%= link_to 'Edit', edit_gallery_picture_path(@picture) %>
+<%= link_to 'Back', gallery_pictures_path %>
 
 <div class="picture">
   <%= image_tag(@picture.picture_url) %>
