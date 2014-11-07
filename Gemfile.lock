@@ -136,7 +136,6 @@ PLATFORMS
 
 DEPENDENCIES
   carrierwave
-  coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
